@@ -9,7 +9,7 @@ class ListOrdersController{
     const total= await prismaClient.order.count(
       {
         where:{
-          draft: false,
+          draft: true,
           status: false,
         },
       }
@@ -17,7 +17,7 @@ class ListOrdersController{
 
     const orders = await prismaClient.order.findMany({
       where:{
-        draft: false,
+        draft: true,
         status: false,
       },
       orderBy:{
